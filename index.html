@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#c8102e" />
+  <meta name="description" content="Pedí online en Lo de la Popis — delivery de comida casera." />
+  <title>Lo de la Popis</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Intro con video ===== -->
+  <section id="splash" class="splash" aria-label="Introducción">
+    <video id="splash-video" class="splash__video" muted playsinline autoplay preload="auto"></video>
+    <div class="splash__overlay">
+      <img class="splash__logo" data-logo alt="" />
+      <h1 class="splash__name" data-nombre></h1>
+      <button id="splash-enter" class="btn btn--primary btn--lg">Hacer mi pedido</button>
+    </div>
+    <button id="splash-skip" class="splash__skip">Saltar ›</button>
+  </section>
+
+  <!-- ===== App ===== -->
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <img class="topbar__logo" data-logo alt="" />
+      <div class="topbar__text">
+        <h1 class="topbar__name" data-nombre></h1>
+        <p class="topbar__hours" data-horario></p>
+      </div>
+    </header>
+
+    <div class="search">
+      <input id="search" type="search" placeholder="Buscar comida…" autocomplete="off" aria-label="Buscar" />
+    </div>
+
+    <nav id="cats" class="cats" aria-label="Categorías"></nav>
+
+    <main id="menu" class="menu"></main>
+
+    <p class="footer-note">Hecho con ❤️ para <span data-nombre></span></p>
+  </div>
+
+  <!-- Botón flotante del carrito -->
+  <button id="cart-fab" class="cart-fab" hidden>
+    <span class="cart-fab__count" id="cart-count">0</span>
+    <span>Ver pedido</span>
+    <span class="cart-fab__total" id="cart-fab-total"></span>
+  </button>
+
+  <!-- ===== Carrito / checkout ===== -->
+  <div id="sheet-backdrop" class="backdrop" hidden></div>
+  <aside id="sheet" class="sheet" aria-label="Tu pedido" aria-hidden="true">
+    <div class="sheet__handle"></div>
+    <div class="sheet__head">
+      <h2>Tu pedido</h2>
+      <button class="icon-btn" id="sheet-close" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <form id="checkout" class="checkout" novalidate>
+      <div class="seg" role="radiogroup" aria-label="Forma de entrega">
+        <label><input type="radio" name="entrega" value="delivery" checked /> <span>🛵 Delivery</span></label>
+        <label><input type="radio" name="entrega" value="retiro" /> <span>🏠 Retiro</span></label>
+      </div>
+
+      <label class="field">Nombre
+        <input name="nombre" required autocomplete="name" />
+      </label>
+      <label class="field">Teléfono
+        <input name="telefono" type="tel" required autocomplete="tel" />
+      </label>
+      <label class="field" data-delivery-only>Dirección
+        <input name="direccion" autocomplete="street-address" placeholder="Calle, número, piso/depto" />
+      </label>
+      <label class="field">Forma de pago
+        <select name="pago" id="pago"></select>
+      </label>
+      <label class="field">Notas (opcional)
+        <textarea name="notas" rows="2" placeholder="Sin cebolla, timbre no anda, etc."></textarea>
+      </label>
+
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="t-sub"></dd></div>
+        <div data-delivery-only><dt>Envío</dt><dd id="t-envio"></dd></div>
+        <div class="totals__grand"><dt>Total</dt><dd id="t-total"></dd></div>
+      </dl>
+
+      <p id="form-error" class="form-error" role="alert"></p>
+      <button type="submit" class="btn btn--whatsapp btn--lg btn--block">Enviar pedido por WhatsApp</button>
+    </form>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

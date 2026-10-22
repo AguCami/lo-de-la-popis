@@ -1,0 +1,11 @@
+{
+  "name": "Lo de la Popis",
+  "short_name": "La Popis",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff8f1",
+  "theme_color": "#c8102e",
+  "icons": [
+    { "src": "assets/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
