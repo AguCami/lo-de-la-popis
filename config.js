@@ -4,7 +4,7 @@
 // ============================================================
 
 window.CONFIG = {
-  nombre: "Lo de la Popis",
+  nombre: "Lo de la Popi's",
   slogan: "Comida casera directo a tu casa",
 
   // Número de WhatsApp que recibe los pedidos (formato internacional, sin + ni espacios)
@@ -18,7 +18,7 @@ window.CONFIG = {
 
   // Archivos en la carpeta /assets
   video: "assets/intro.mp4",
-  logo: "assets/logo.png",
+  logo: "assets/logo.jpg",
 
   mediosDePago: ["Efectivo", "Transferencia", "Mercado Pago"],
 };

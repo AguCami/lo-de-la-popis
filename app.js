@@ -26,7 +26,10 @@
   $$("[data-horario]").forEach((el) => (el.textContent = C.horario));
   $$("[data-logo]").forEach((img) => {
     img.alt = C.nombre;
-    img.onerror = () => (img.hidden = true);
+    img.onerror = () => {
+      img.hidden = true;
+      if (img.closest("#splash")) $("#splash").classList.add("splash--no-logo");
+    };
     img.src = C.logo;
   });
   document.title = C.nombre;

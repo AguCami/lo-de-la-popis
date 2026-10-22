@@ -1,11 +1,12 @@
 {
-  "name": "Lo de la Popis",
-  "short_name": "La Popis",
+  "name": "Lo de la Popi's",
+  "short_name": "La Popi's",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#fff8f1",
-  "theme_color": "#c8102e",
+  "background_color": "#1b1a18",
+  "theme_color": "#1b1a18",
   "icons": [
-    { "src": "assets/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
